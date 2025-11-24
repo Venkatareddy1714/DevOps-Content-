@@ -189,7 +189,7 @@ clear/ ctrl l	: to clear the screen
 logout /ctrl d	: to logout from the current user
 date		: time and date
 hostname 	: to print the hostname
-hostnamectl set-hostname raham : it will set the hostname
+hostnamectl set-hostname venkat: it will set the hostname
 
 FILE COMMANDS:
 
@@ -200,7 +200,7 @@ more file1		: to show content in file1
 cat>>file1		: to insert the content in a file
 enter + ctrl d 		: to save the content
 cp file1 file2		: to copy content from file1 to file2
-mv file1 raham		: to rename file1 as raham
+mv file1 venkat		: to rename file1 as venkat
 rm file1		: to remove a file
 rm file3 -f		: to remove a file forcefully
 rm * -f			: to remove all files forcefully
@@ -360,14 +360,14 @@ USER CONFIGURATION:
 by default all the commits will come with root user
 so we need to chnage the username as per our requirment
 
-git config user.name "raham"
-git config user.email "raham@gmail.com"
+git config user.name "venkat"
+git config user.email "venkat@gmail.com"
 
 
 GIT RESTORE:
 this command will untrack the tracked file.
 git restore --staged file_name
-git rm --cached raham (alternative command)
+git rm --cached venkat (alternative command)
 
 this command used to recover the deleted file.
 git restore file_name
@@ -516,8 +516,8 @@ git cherry-pick commit_id
 
 Process:
 
-mkdir raham
-cd raham/
+mkdir venkat
+cd venkat/
 touch java{1..3}
 git init
 git add java*
@@ -637,7 +637,7 @@ home path: .m2
 PRATCICAL PART:
 1. CREATE AN EC2 INSTANCE AND CONNECT
 2. yum install git java-1.8.0-openjdk maven tree -y
-3. git clone https://github.com/devopsbyraham/jenkins-java-project.git
+3. git clone https://github.com/devopsbyvenkat/jenkins-java-project.git
 4. cd jenkins-java-project
 
 
@@ -689,7 +689,7 @@ ANT, GRADLE for java projects.
 HISTORY:
     1  yum install git java-1.8.0-openjdk maven tree -y
     2  mvn -v
-    3  git clone https://github.com/devopsbyraham/jenkins-java-project.git
+    3  git clone https://github.com/devopsbyvenkat/jenkins-java-project.git
     4  ll
     5  cd jenkins-java-project/
     6  ll
@@ -705,7 +705,7 @@ HISTORY:
    16  mvn package
    17  tree
    18  mvn install
-   19  ll /root/.m2/repository/in/RAHAM/NETFLIX/1.2.2/
+   19  ll /root/.m2/repository/in/VENKAT/NETFLIX/1.2.2/
    20  ll
    21  mvn clean
    22  ll
@@ -841,7 +841,7 @@ build now: to run job
 workspace: place where our job outputs will store
 
 CREATING A JOB:
-NEW ITEM -- > NAME: ABC -- > FREESTYLE -- > OK -- > SCM -- > GIT -- > REPOURL: https://github.com/devopsbyraham/jenkins-java-project.git -- >Build Steps -- > ADD Build Steps -- > Execute shell -- > mvn clean package -- > save -- > build now
+NEW ITEM -- > NAME: ABC -- > FREESTYLE -- > OK -- > SCM -- > GIT -- > REPOURL: https://github.com/devopsbyvenkat/jenkins-java-project.git -- >Build Steps -- > ADD Build Steps -- > Execute shell -- > mvn clean package -- > save -- > build now
 
 WORKSPACE: where your job output is going to be stored
 Default: /var/lib/jenkins/workspace
@@ -891,7 +891,7 @@ will be working for only single job.
 
 NEW ITEM -- > NAME: ABC -- > FREESTYLE -- > OK -- > BUILD -- >EXECUTE SHELL
 
-name=raham
+name=venkat
 echo "hai all my name is $name, $name is from hyderabad, $name is teaching devops"
 
 
@@ -899,7 +899,7 @@ b. Global Variable: Variable will work outside of job.
 will be working for multiple job.
 
 
-Dashboard -- > Manage Jenkins -- > System -- > Global properties  -- > Environment variables -- > add : Name: name value: raham -- > save 
+Dashboard -- > Manage Jenkins -- > System -- > Global properties  -- > Environment variables -- > add : Name: name value: venkat -- > save 
 
 NOTE: while defining variables spaces will not be given.
 local variables will be high priority.
@@ -1077,7 +1077,7 @@ pipeline {
     agent any 
     
     stages {
-        stage('raham') {
+        stage('venkat') {
             steps {
                 sh 'touch file2'
             }
@@ -1120,7 +1120,7 @@ pipeline {
     stages {
         stage ('checkout') {
             steps {
-                git 'https://github.com/devopsbyraham/jenkins-java-project.git'
+                git 'https://github.com/devopsbyvenkat/jenkins-java-project.git'
             }
         }
         stage ('build') {
@@ -1152,7 +1152,7 @@ pipeline {
     stages {
         stage ('checkout') {
             steps {
-                git 'https://github.com/devopsbyraham/jenkins-java-project.git'
+                git 'https://github.com/devopsbyvenkat/jenkins-java-project.git'
                 sh 'mvn compile'
                 sh 'mvn test'
                 sh 'mvn package'
@@ -1170,7 +1170,7 @@ pipeline {
     stages {
         stage ('one') {
             steps {
-                git 'https://github.com/devopsbyraham/jenkins-java-project.git'
+                git 'https://github.com/devopsbyvenkat/jenkins-java-project.git'
                 sh 'mvn compile'
             }
         }
@@ -1191,7 +1191,7 @@ pipeline {
     stages {
         stage ('one') {
             steps {
-                git 'https://github.com/devopsbyraham/jenkins-java-project.git'
+                git 'https://github.com/devopsbyvenkat/jenkins-java-project.git'
                 sh '''
                 mvn compile
                 mvn test
@@ -1211,7 +1211,7 @@ pipeline {
     stages {
         stage ('checkout') {
             steps {
-                git 'https://github.com/devopsbyraham/jenkins-java-project.git'
+                git 'https://github.com/devopsbyvenkat/jenkins-java-project.git'
             }
         }
         stage ('build') {
@@ -1287,13 +1287,13 @@ yum install git java-1.8.0-openjdk maven -y
 
 pipeline {
     agent {
-        label 'raham'
+        label 'venkat'
     }
     
     stages {
         stage('code') {
             steps {
-                git 'https://github.com/devopsbyraham/jenkins-java-project.git'
+                git 'https://github.com/devopsbyvenkat/jenkins-java-project.git'
             }
         }
         stage('build') {
@@ -1354,7 +1354,7 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                git 'https://github.com/devopsbyraham/jenkins-java-project.git'
+                git 'https://github.com/devopsbyvenkat/jenkins-java-project.git'
             }
         }
         stage('build') {
@@ -1414,7 +1414,7 @@ vim apache-tomcat-9.0.89/conf/tomcat-users.xml
 
  56   <role rolename="manager-gui"/>
  57   <role rolename="manager-script"/>
- 58   <user username="tomcat" password="raham123" roles="manager-gui, manager-script"/>
+ 58   <user username="tomcat" password="venkat123" roles="manager-gui, manager-script"/>
 
 STEP-4: DELETE LINE 21 AND 22
 vim apache-tomcat-9.0.89/webapps/manager/META-INF/context.xml
@@ -1424,7 +1424,7 @@ sh apache-tomcat-9.0.89/bin/startup.sh
 
 CONNECTION:
 COPY PUBLIC IP:8080 
-manager apps -- > username: tomcat & password: raham123
+manager apps -- > username: tomcat & password: venkat123
 
 
 
@@ -1451,7 +1451,7 @@ RBAC: ROLE BASE ACCESS CONTROL.
 TO restrict the user PERMISSIONS in jenkins.
 
 suresh	= fresher
-raham	= exp 
+venkat	= exp 
 
 STEP-1: USER CREATION
 manage jenkins -- > users -- > create users -- > suresh: fresher 
@@ -1574,12 +1574,12 @@ ansible all -a "yum install git -y"
 ansible all -a "yum install maven -y"
 ansible all -a "mvn --version"
 ansible all -a "touch file1"
-ansible all -a "touch raham.txt"
+ansible all -a "touch venkat.txt"
 ansible all -a "ls"
 ansible all -a "yum install httpd -y"
 ansible all -a "systemctl status httpd"
 ansible all -a "systemctl start httpd"
-ansible all -a "user add raham"
+ansible all -a "user add venkat"
 ansible all -a "cat /etc/passwd"
 ansible all -a "yum remove git* maven* httpd* -y"
 
@@ -1611,7 +1611,7 @@ HISTORY:
    23  ansible all -a "mvn -v"
    24  ansible dev -a "yum install tree -y"
    25  ansible all -a "tree -v"
-   26  ansible all -a "useradd raham"
+   26  ansible all -a "useradd venkat"
    27  ansible all -a "cat /etc/passwd"
    28  ansible all -a "yum install httpd -y"
    29  ansible all -a "systemctl status httpd"
@@ -1636,7 +1636,7 @@ ansible all -m service -a "name=httpd state=stopped"	[stopped=stop]
 ansible all -m yum -a "name=http state=absent"		[absent=uninstall]
 ansible all -m user -a "name=vikram state=present"
 ansible all -m user -a "name=vikram state=absent"
-ansible all -m copy -a "src=raham.txt dest=/tmp"
+ansible all -m copy -a "src=venkat.txt dest=/tmp"
 
 3. PLAYBOOKS:
 playbooks used to execute multiple modules.
@@ -1697,7 +1697,7 @@ EX-2:
       user: name=pushpa state=absent
 
     - name: copying a file
-      copy: src=raham.txt dest=/root
+      copy: src=venkat.txt dest=/root
 
 
 
@@ -1731,30 +1731,30 @@ HISTORY:
    61  ansible all -m user -a "name=revii state=present"
    62  ansible all -a "cat /etc/passwd"
    63  ll
-   64  vim raham.txt
+   64  vim venkat.txt
    65  ll
-   66  ansible all -m copy -a "src=raham.txt dest=/tmp"
+   66  ansible all -m copy -a "src=venkat.txt dest=/tmp"
    67  ansible all -a "ls"
    68  ansible all -a "ls /ymp"
    69  ansible all -a "ls /tmp"
    70  ansible all -a "yum remove maven* git* httpd* -y"
-   71  vim raham.yml
-   72  ansible-playbook raham.yml
+   71  vim venkat.yml
+   72  ansible-playbook venkat.yml
    73  vim p
-   74  vim raham.yml
-   75  cat raham.yml
-   76  sed -i 's/present/absent/' raham.yml
-   77  cat raham.yml
-   78  ansible-playbook raham.yml
-   79  vim raham.yml
-   80  ansible-playbook raham.yml
-   81  cat raham.
-   82  cat raham.yml
+   74  vim venkat.yml
+   75  cat venkat.yml
+   76  sed -i 's/present/absent/' venkat.yml
+   77  cat venkat.yml
+   78  ansible-playbook venkat.yml
+   79  vim venkat.yml
+   80  ansible-playbook venkat.yml
+   81  cat venkat.yml
+   82  cat venkat.yml
    83  ansible all -m setup
    84  ansible all -m setup | grep -i cpu
    85  ansible all -m setup | grep -i mem
    86  ansible all -m setup | grep -i node
-   87  cat raham.yml
+   87  cat venkat.yml
    88  history
 
 
@@ -1791,8 +1791,8 @@ EX-1:
       copy: src=index.html dest=/tmp
       tags: e
 
-SINGLE TAG: ansible-playbook raham.yml --tags d
-MULTI TAGS: ansible-playbook raham.yml --tags b,c
+SINGLE TAG: ansible-playbook venkat.yml --tags d
+MULTI TAGS: ansible-playbook venkat.yml --tags b,c
 
 EX-2:
 
@@ -1819,8 +1819,8 @@ EX-2:
       copy: src=index.html dest=/tmp
       tags: e
 
-SKIP A SINGLE TASK: ansible-playbook raham.yml --skip-tags "c"
-SKIP MULTIPLE TASK: ansible-playbook raham.yml --skip-tags "a,c"
+SKIP A SINGLE TASK: ansible-playbook venkat.yml --skip-tags "c"
+SKIP MULTIPLE TASK: ansible-playbook venkat.yml --skip-tags "a,c"
 
 VARIABLES:
 
@@ -1850,7 +1850,7 @@ DYNAMIC VARS: therse vars will be defined outside the playbook and these will ch
       yum: name={{b}} state=absent
 
 
-ansible-playbook raham.yml --extra-vars "a=docker b=httpd"
+ansible-playbook venkat.yml --extra-vars "a=docker b=httpd"
 
 
 LOOPS: We can use loops to reduce the length of the code for the playbook
@@ -1932,7 +1932,7 @@ the name of the notify and the name of the task two must be same.
     - name: starting httpd
       service: name=httpd state=started
 
-sed -i 's/present/absent/g' raham.yml
+sed -i 's/present/absent/g' venkat.yml
 
 - hosts: all
   tasks:
@@ -1960,68 +1960,68 @@ raw >> command >> shell.
 
 
 HISTORY:  89  ll
-   90  rm -rf raham.txt
-   91  cat raham.yml
-   92  rm -rf raham.yml
-   93  vim raham.yml
+   90  rm -rf venkat.txt
+   91  cat venkat.yml
+   92  rm -rf venkat.yml
+   93  vim venkat.yml
    94  touch index.html
-   95  cat raham.yml
-   96  ansible-playbook raham.yml --tags e
-   97  ansible-playbook raham.yml --tags b,c
+   95  cat venkat.yml
+   96  ansible-playbook venkat.yml --tags e
+   97  ansible-playbook venkat.yml --tags b,c
    98  ansible all -a "yum remove httpd* -y"
-   99  cat raham.yml
-  100  ansible-playbook raham.yml --skip-tags "e"
-  101  ansible-playbook raham.yml --skip-tags "e,a"
-  102  cat raham.yml
-  103  sed -i 's/present/absent/; s/installing/uninstalling/' raham.yml
-  104  cat raham.yml
-  105  ansible-playbook raham.yml
-  106  vim raham.yml
-  107  ansible-playbook raham.yml
-  108  vim raham.yml
-  109  cat raham.yml
-  110  sed -i 's/present/absent/' raham.yml
-  111  cat raham.yml
-  112  ansible-playbook raham.yml --extra-vars "a=maven b=httpd"
-  113  vim raham.yml
-  114  ansible-playbook raham.yml
-  115  vim raham.yml
-  116  ansible-playbook raham.yml
+   99  cat venkat.yml
+  100  ansible-playbook venkat.yml --skip-tags "e"
+  101  ansible-playbook venkat.yml --skip-tags "e,a"
+  102  cat venkat.yml
+  103  sed -i 's/present/absent/; s/installing/uninstalling/' venkat.yml
+  104  cat venkat.yml
+  105  ansible-playbook venkat.yml
+  106  vim venkat.yml
+  107  ansible-playbook venkat.yml
+  108  vim venkat.yml
+  109  cat venkat.yml
+  110  sed -i 's/present/absent/' venkat.yml
+  111  cat venkat.yml
+  112  ansible-playbook venkat.yml --extra-vars "a=maven b=httpd"
+  113  vim venkat.yml
+  114  ansible-playbook venkat.yml
+  115  vim venkat.yml
+  116  ansible-playbook venkat.yml
   117  ansible all -a "mvn -v"
   118  ansible all -a "httpd -v"
   119  ansible all -a "git -v"
   120  ansible all -a "docker -v"
   121  ansible all -a "tree -v"
-  122  vim raham.yml
-  123  ansible-playbook raham.yml
+  122  vim venkat.yml
+  123  ansible-playbook venkat.yml
   124  ansible all -a "mvn -v"
   125  ansible all -a "httpd -v"
   126  ansible all -a "git -v"
   127  ansible all -a "docker -v"
   128  ansible all -a "tree -v"
-  129  vim raham.yml
-  130  ansible-playbook raham.yml
+  129  vim venkat.yml
+  130  ansible-playbook venkat.yml
   131  ansible all -a "cat /etc/passwd"
-  132  vim raham.yml
-  133  ansible-playbook raham.yml
-  134  vim raham.yml
-  135  ansible-playbook raham.yml
-  136  vim raham.yml
-  137  sed -i 's/present/absent/' raham.yml
-  138  ansible-playbook raham.yml
-  139  vim raham.yml
-  140  ansible-playbook raham.yml
-  141  cat raham.yml
-  142  sed -i 's/install/remove/' raham.yml
-  143  ansible-playbook raham.yml
-  144  vim raham.yml
+  132  vim venkat.yml
+  133  ansible-playbook venkat.yml
+  134  vim venkat.yml
+  135  ansible-playbook venkat.yml
+  136  vim venkat.yml
+  137  sed -i 's/present/absent/' venkat.yml
+  138  ansible-playbook venkat.yml
+  139  vim venkat.yml
+  140  ansible-playbook venkat.yml
+  141  cat venkat.yml
+  142  sed -i 's/install/remove/' venkat.yml
+  143  ansible-playbook venkat.yml
+  144  vim venkat.yml
   145  touch index.html
-  146  ansible-playbook raham.yml
-  147  vim raham.yml
-  148  ansible-playbook raham.yml
-  149  sed -i 's/absent/present/' raham.yml
-  150  ansible-playbook raham.yml
-  151  cat raham.yml
+  146  ansible-playbook venkat.yml
+  147  vim venkat.yml
+  148  ansible-playbook venkat.yml
+  149  sed -i 's/absent/present/' venkat.yml
+  150  ansible-playbook venkat.yml
+  151  cat venkat.yml
   152  history
 =============================================================================
 
@@ -2107,7 +2107,7 @@ LOOKUPS: this module used to get data from files, db and key values
         msg: "hai my user name is {{a}}"
 
 cat creds.txt
-user=raham
+user=venkat
 password=test123
 
 
@@ -2204,7 +2204,7 @@ if we want to access any data which is in the vault we need to give a password.
 Note: we can restrict the users to access the playbook also.
 
 cat creds.txt
-user=raham
+user=venkat
 passowrd=test123
 
 ansible-vault create creds1.txt		: to create a vault
@@ -2244,7 +2244,7 @@ LOOKUPS: this module used to get data from files, db and key values
         msg: "hai my user name is {{a}}"
 
 cat creds.txt
-user=raham
+user=venkat
 password=test123
 
 JINJA2 TEMPLATE: used to get the customized op, here its a text file which can extract the variables and these values will change as per time.
@@ -2284,7 +2284,7 @@ https://github.com/RAHAMSHAIK007/all-setups.git
 ================================================================================
 
 LINK FOR SCRIPTS & PLAYBOOKS : https://github.com/RAHAMSHAIK007/all-setups.git
-LINK FOR PROJECT: https://github.com/devopsbyraham/jenkins-java-project.git
+LINK FOR PROJECT: https://github.com/devopsbyvenkat/jenkins-java-project.git
 
 Install Jenkins on ansible server and connect to dashboard
 
@@ -2309,7 +2309,7 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                git 'https://github.com/devopsbyraham/jenkins-java-project.git'
+                git 'https://github.com/devopsbyvenkat/jenkins-java-project.git'
             }
         }
         stage('build') {
@@ -2413,7 +2413,7 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                git branch: '$branch', url: 'https://github.com/devopsbyraham/jenkins-java-project.git'
+                git branch: '$branch', url: 'https://github.com/devopsbyvenkat/jenkins-java-project.git'
             }
         }
         stage('build') {
@@ -2555,8 +2555,8 @@ ls
 
 ctrl p q
 
-docker commit cont1 raham:v1
-docker run -it --name cont2 raham:v1
+docker commit cont1 venkat:v1
+docker run -it --name cont2 venkat:v1
 apache2 -v
 mysql-server --version
 python3 --version
@@ -2596,8 +2596,8 @@ FROM ubuntu
 RUN apt update -y
 RUN apt install apache2 -y
 
-docker build -t raham:v1 .
-docker run -it --name cont1 raham:v1 
+docker build -t venkat:v1 .
+docker run -it --name cont1 venkat:v1 
 
 EX-2:
 FROM ubuntu
@@ -2607,16 +2607,16 @@ RUN apt install python3 -y
 CMD apt install mysql-server -y
 
 
-docker build -t raham:v2 .
-docker run -it --name cont2 raham:v2
+docker build -t venkat:v2 .
+docker run -it --name cont2 venkat:v2
 
 EX-3:
 FROM ubuntu
 COPY index.html /tmp
 ADD http://dlcdn.apache.org/tomcat/tomcat-9/v9.0.89/bin/apache-tomcat-9.0.89.tar.gz /tmp
 
-docker build -t raham:v3 .
-docker run -it --name cont3 raham:v3
+docker build -t venkat:v3 .
+docker run -it --name cont3 venkat:v3
 
 EX-4:
 
@@ -2624,20 +2624,20 @@ FROM ubuntu
 COPY index.html /tmp
 ADD http://dlcdn.apache.org/tomcat/tomcat-9/v9.0.89/bin/apache-tomcat-9.0.89.tar.gz /tmp
 WORKDIR /tmp
-LABEL author rahamshaik
+LABEL author venkat
 
-docker build -t raham:v4 .
-docker run -it --name cont4 raham:v4
+docker build -t venkat:v4 .
+docker run -it --name cont4 venkat:v4
 
 
 EX-5:
 FROM ubuntu
-LABEL author rahamshaik
+LABEL author venkat
 ENV client swiggy
 ENV server appserver
 
-docker build -t raham:v5 .
-docker run -it --name cont5 raham:v5
+docker build -t venkat:v5 .
+docker run -it --name cont5 venkat:v5
 
 
 NETFLIX-DEPLOYMENT:
@@ -2761,12 +2761,12 @@ CHANGING THE DEFULT FILE:
 by default the docker-compose wil support the following names
 docker-compose.yml, docker-compose.yaml, compose.yml, compose.yaml
 
-mv docker-compose.yml raham.yml
+mv docker-compose.yml venkat.yml
 docker-compose up -d	: throws an error
 
-docker-compose -f raham.yml up -d
-docker-compose -f raham.yml ps
-docker-compose -f raham.yml down
+docker-compose -f venkat.yml up -d
+docker-compose -f venkat.yml ps
+docker-compose -f venkat.yml down
 
 
 images we create on server.
@@ -3070,7 +3070,7 @@ kubectl create -f pod.yml
 kubectl get pods/pod/po
 kubectl get pod -o wide
 kubectl describe pod pod1
-kubectl delete -f raham.yml
+kubectl delete -f venkat.yml
 
 DRAWBACK: once pod is deleted we can't retrive the pod.
 
@@ -3085,7 +3085,7 @@ HISTORY:
     8  kubectl get po -o wide
     9  kubectl describe po pod1
    10  kubectl delete po pod1
-   11  kubectl run pod1 --image rahamshaik/paytmmovies:latest
+   11  kubectl run pod1 --image venkat/paytmmovies:latest
    12  kubectl get po
    13  kubectl delete pod pod1
    14  kubectl run pod1 --image nginx
@@ -3275,32 +3275,32 @@ aws s3api put-bucket-versioning --bucket devopsbatchapr600pm.k8s.local --region 
 export KOPS_STATE_STORE=s3://devopsbatchapr600pm.k8s.local
 
 SETP-4: CREATING THE CLUSTER
-kops create cluster --name rahams.k8s.local --zones us-east-1a --master-count=1 --master-size t2.medium --node-count=2 --node-size t2.micro
-kops update cluster --name rahams.k8s.local --yes --admin
+kops create cluster --name venkat.k8s.local --zones us-east-1a --master-count=1 --master-size t2.medium --node-count=2 --node-size t2.micro
+kops update cluster --name venkat.k8s.local --yes --admin
 
 
 Suggestions:
  * list clusters with: kops get cluster
- * edit this cluster with: kops edit cluster rahams.k8s.local
- * edit your node instance group: kops edit ig --name=rahams.k8s.local nodes-us-east-1a
- * edit your master instance group: kops edit ig --name=rahams.k8s.local master-us-east-1a
+ * edit this cluster with: kops edit cluster venkat.k8s.local
+ * edit your node instance group: kops edit ig --name=venkat.k8s.local nodes-us-east-1a
+ * edit your master instance group: kops edit ig --name=venkat.k8s.local master-us-east-1a
 
 
 ADMIN ACTIVITIES:
 To scale the worker nodes:
-kops edit ig --name=rahams.k8s.local nodes-us-east-1a
-kops update cluster --name rahams.k8s.local --yes --admin 
+kops edit ig --name=venkat.k8s.local nodes-us-east-1a
+kops update cluster --name venkat.k8s.local --yes --admin 
 kops rolling-update cluster --yes
 
 ADMIN ACTIVITIES:
-kops update cluster --name rahams.k8s.local --yes
+kops update cluster --name venkat.k8s.local --yes
 kops rolling-update cluster
 
 NOTE: In real time we use fine node cluster to master nodes and three worker nodes.
 
 NOTE: its My humble request for all of you not to delete the cluster manually and do not delete any server use the below command to delete the cluster.
 
-TO DELETE: kops delete cluster --name rahams.k8s.local --yes
+TO DELETE: kops delete cluster --name venkat.k8s.local --yes
 
 
 NAMESPACES:
@@ -3374,7 +3374,7 @@ spec:
     spec:
       containers:
       - name: cont1
-        image: rahamshaik/moviespaytm:latest
+        image: venkat/moviespaytm:latest
         ports:
           - containerPort: 80
 
@@ -3405,7 +3405,7 @@ spec:
     spec:
       containers:
       - name: cont1
-        image: rahamshaik/moviespaytm:latest
+        image: venkat/moviespaytm:latest
         ports:
           - containerPort: 80
 ---
@@ -3445,7 +3445,7 @@ spec:
     spec:
       containers:
       - name: cont1
-        image: rahamshaik/moviespaytm:latest
+        image: venkat/moviespaytm:latest
         ports:
           - containerPort: 80
 ---
@@ -3488,7 +3488,7 @@ spec:
     spec:
       containers:
       - name: cont1
-        image: rahamshaik/trainservice:latest
+        image: venkat/trainservice:latest
         ports:
           - containerPort: 80
 ---
@@ -3531,7 +3531,7 @@ spec:
     spec:
       containers:
       - name: cont1
-        image: rahamshaik/moviespaytm:latest
+        image: venkat/moviespaytm:latest
         ports:
           - containerPort: 80
 
@@ -3557,7 +3557,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: rahamshaik/moviespaytm:latest
+        image: venkat/moviespaytm:latest
         ports:
         - containerPort: 80
 
@@ -3886,7 +3886,7 @@ spec:
         app: swiggy
     spec:
       containers:
-      - name: raham
+      - name: venkat
         image: centos
         command: ["/bin/bash", "-c", "sleep 10000"]
         volumeMounts:
@@ -3900,7 +3900,7 @@ spec:
 kubectl exec pvdeploy-86c99cf54d-d8rj4 -it -- /bin/bash
 cd /tmp/persistent/
 ls
-vim raham
+vim venkat
 exit
 
 now delete the pod and new pod will created then in that pod you will see the same content.
@@ -4098,13 +4098,13 @@ line 892
  892 [smtp]
  893 enabled = true
  894 host = smtp.gmail.com:587
- 895 user = devopsbyraham@gmail.com
+ 895 user = devopsbyvenkat@gmail.com
  896 # If the password contains # or ; you have to wrap it with triple quotes. Ex """#pa     ssword;"""
  897 password = xhfa drlb zgwm ogey
  898 ;cert_file =
  899 ;key_file =
  900 skip_verify = true
- 901 from_address = devopsbyraham@gmail.com
+ 901 from_address = devopsbyvenkat@gmail.com
  902 from_name = grafana
 
 systemctl restart grafana-server.service
@@ -4162,7 +4162,7 @@ kubectl logs swiggydb-5d49dc56-cbbqk
 It is crashed why because we havent specified the password for it
 
 
-kubectl set env deploy swiggydb MYSQL_ROOT_PASSWORD=Raham123 
+kubectl set env deploy swiggydb MYSQL_ROOT_PASSWORD=venkat123 
 kubectl get pods
 now it will be on running state
 kubectl delete deploy swiggydb
@@ -4174,7 +4174,7 @@ kubectl logs swiggydb-5d49dc56-cbbqk
 
 vim vars
 
-MYSQL_ROOT_PASSWORD=Raham123
+MYSQL_ROOT_PASSWORD=venkat123
 MYSQL_USER=admin
 
 kubectl create cm dbvars --from-env-file=varsfile
@@ -4186,7 +4186,7 @@ kubectl get pods
 
 SECRETS: To store sensitive data in an unencrypted format like passwords, ssh-keys etc ---
 it uses base64 encoded format
-password=raham (now we can encode and ecode the value)
+password=venkat (now we can encode and ecode the value)
 
 WHY: if i dont want to expose the sensitive info so we use SECRETS
 By default k8s will create some Secrets these are useful from me to create communicate inside the cluster
@@ -4200,7 +4200,7 @@ Docker Registry: used to get private images by using the password
 
 kubectl create deploy swiggydb --image=mariadb
 kubectl get po 
-kubectl create secret generic password --from-literal=ROOT_PASSWORD=raham123 (from cli)
+kubectl create secret generic password --from-literal=ROOT_PASSWORD=venkat123 (from cli)
 kubectl create secret generic my-secret --from-env-file=vars (from file)
 
 kubectl get secrets
@@ -4538,7 +4538,7 @@ resource "aws_instance" "one" {
 ami = "ami-00b8917ae86a424c9"
 instance_type = var.instance_type
 tags = {
-Name = "raham-server"
+Name = "venkat-server"
 }
 }
 
@@ -4569,7 +4569,7 @@ resource "aws_instance" "one" {
   ami = var.ami
   instance_type = "t2.micro"
   tags = {
-    Name = "raham"
+    Name = "venkat"
   }
 }
 
@@ -4590,17 +4590,17 @@ resource "aws_instance" "one" {
 ami = "ami-00b8917ae86a424c9"
 instance_type = "t2.micro"
 tags = {
-Name = "raham-server"
+Name = "venkat-server"
 }
 }
 
-output "raham" {
+output "venkat" {
 value = [aws_instance.one.public_ip, aws_instance.one.private_ip, aws_instance.one.public_dns]
 }
 
 TO GET COMPLTE OUTPUS:
 
-output "raham" {
+output "venkat" {
 value = aws_instance.one
 }
 
@@ -4625,12 +4625,12 @@ resource "aws_instance" "one" {
   ami           = "ami-0195204d5dce06d99"
   instance_type = "t2.micro"
   tags = {
-    Name = "raham"
+    Name = "venkat"
   }
 }
 
 resource "aws_s3_bucket" "two" {
-  bucket = "rahamshaik8e3huirfh9uf2f"
+  bucket = "venkatshaik8e3huirfh9uf2f"
 }
 
 terraform apply --auto-approve 
@@ -4830,7 +4830,7 @@ resource "aws_instance" "three" {
 }
 
 resource "aws_s3_bucket" "three" {
-  bucket = "rahamshaik00998877abc"
+  bucket = "venkatareddy00998877abc"
 }
 
 COUNT: count is to create identical objects which is having same configuration.
@@ -5052,7 +5052,7 @@ mkdir -p modules/buckets
 
 cat modules/buckets/main.tf
 resource "aws_s3_bucket" "abcd" {
-bucket = "devopsherahamshaik0099889977"
+bucket = "devopshevenkat0099889977"
 }
 
 
