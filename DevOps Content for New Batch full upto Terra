@@ -1133,7 +1133,7 @@ pipeline {
     stages {
         stage ('checkout') {
             steps {
-                git 'https://github.com/devopsbyvenkat/jenkins-java-project.git'
+                git 'https://github.com/Venkatareddy1714/jenkins-java-project1.git'
             }
         }
         stage ('build') {
@@ -1165,7 +1165,7 @@ pipeline {
     stages {
         stage ('checkout') {
             steps {
-                git 'https://github.com/devopsbyvenkat/jenkins-java-project.git'
+                git 'https://github.com/Venkatareddy1714/jenkins-java-project1.git'
                 sh 'mvn compile'
                 sh 'mvn test'
                 sh 'mvn package'
@@ -1183,7 +1183,7 @@ pipeline {
     stages {
         stage ('one') {
             steps {
-                git 'https://github.com/devopsbyvenkat/jenkins-java-project.git'
+                git 'https://github.com/Venkatareddy1714/jenkins-java-project1.git'
                 sh 'mvn compile'
             }
         }
@@ -1204,7 +1204,7 @@ pipeline {
     stages {
         stage ('one') {
             steps {
-                git 'https://github.com/devopsbyvenkat/jenkins-java-project.git'
+                git 'https://github.com/Venkatareddy1714/jenkins-java-project1.git'
                 sh '''
                 mvn compile
                 mvn test
@@ -1224,7 +1224,7 @@ pipeline {
     stages {
         stage ('checkout') {
             steps {
-                git 'https://github.com/devopsbyvenkat/jenkins-java-project.git'
+                git 'https://github.com/Venkatareddy1714/jenkins-java-project1.git'
             }
         }
         stage ('build') {
@@ -1306,7 +1306,7 @@ pipeline {
     stages {
         stage('code') {
             steps {
-                git 'https://github.com/devopsbyvenkat/jenkins-java-project.git'
+                git 'https://github.com/Venkatareddy1714/jenkins-java-project1.git'
             }
         }
         stage('build') {
@@ -1367,7 +1367,7 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                git 'https://github.com/devopsbyvenkat/jenkins-java-project.git'
+                git 'https://github.com/Venkatareddy1714/jenkins-java-project1.git'
             }
         }
         stage('build') {
